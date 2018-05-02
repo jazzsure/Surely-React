@@ -1,0 +1,17 @@
+{
+  "name": "sure-react",
+  "version": "0.0.1",
+  "description": "sure react",
+  "main": "dist/react.js",
+  "scripts": {
+    "start": " rm -rf dist && parcel ./index.html"
+  },
+  "author": "jazzsure <jazzsure@163.com>",
+  "license": "MIT", 
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "parcel-bundler": "^1.7.1"
+  }
+}
