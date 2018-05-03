@@ -29,10 +29,20 @@ function setComponentProps(component, props){
 export function renderComponent(component){
     let base;
     const renderer = component.render();
+    if(component.base && component.componentWillUpdate){
+        component.componentWillUpdate();
+    }
     base = _render(renderer);
+    if(component.base){
+        if(component.componentDidUpdate) component.componentDidUpdate();
+    } else if(component.componentDidMount){
+        Promise.resolve().then(()=>{component.componentDidMount()});
+    }
+
     if ( component.base && component.base.parentNode ) {
         component.base.parentNode.replaceChild( base, component.base );
     }
+    
     component.base = base;
     base._component = component;
 }
@@ -41,7 +51,7 @@ function _render(vnode, container){
     if(typeof vnode.tag == 'function'){
         const component = createComponent(vnode.tag, vnode.attrs);
         setComponentProps(component, vnode.attrs);
-        return component.base;
+        return container ? container.appendChild(component.base) : component.base ;
     }
     if ( vnode === undefined || vnode === null || typeof vnode === 'boolean' ) vnode = '';
     if ( typeof vnode === 'number' ) vnode = String( vnode );

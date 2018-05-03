@@ -18,8 +18,37 @@ class Welcome extends React.Component {
     click(){
         this.setState({name: "shirly"}); 
     }
+    componentDidMount(){
+        console.log('Welcome did mount');
+    }
+    componentWillMount(){
+        console.log('componentWillMount')
+    }
+    componentWillReceiveProps(){
+        console.log('componentWillReceiveProps')
+    }
+    componentWillUpdate(){
+        console.log('componentWillUpdate')
+    }
+    componentDidUpdate(){
+        console.log('componentDidUpdate')
+    }
+}
+class Hi extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    componentDidMount(){
+        console.log('Hi did mount');
+    }
+    render() {
+        return <div>
+             <Welcome name="sarah"/>
+        </div>;
+    }
+    
 }
 ReactDOM.render(
-    <Welcome name="sarah"/>,
+    <Hi/>,
     document.getElementById( 'root' )
 );
