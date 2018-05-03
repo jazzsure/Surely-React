@@ -30,6 +30,9 @@ export function renderComponent(component){
     let base;
     const renderer = component.render();
     base = _render(renderer);
+    if ( component.base && component.base.parentNode ) {
+        component.base.parentNode.replaceChild( base, component.base );
+    }
     component.base = base;
     base._component = component;
 }
