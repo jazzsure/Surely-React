@@ -1,13 +1,8 @@
-
-function createElement(tag, attrs, ...children){
-    return {
-        tag,
-        attrs,
-        children
-    }
-}
+import createElement from './create-element.js';
+import Component from './component.js';
 const React = {
-    createElement
+    createElement,
+    Component
 }
 
 module.exports = React;
