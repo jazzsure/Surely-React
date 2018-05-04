@@ -1,4 +1,4 @@
-# Surly- React
+# Surely-React
 a react-like framework
 
   
