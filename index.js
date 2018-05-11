@@ -5,20 +5,24 @@ class Welcome extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            name: 'a'
+            number: 1
         };
         //['click'].forEach(fn => this[fn] = this[fn].bind(this));
     }
     render() {
         return <div>
             <h1>Hello, {this.props.name}</h1>
-            <h1 onClick={this.click}>Hello, {this.state.name}</h1>
+            <h1 onClick={this.click}>Hello, {this.state.number}</h1>
         </div>;
     }
     // click(){
     //     this.setState({name: "shirly"}); 
     // }
     componentDidMount(){
+        for(let i = 0; i < 10; i ++){
+            this.setState({number: this.state.number + 1});
+        }
+        
         //console.log('Welcome did mount');
     }
     componentWillMount(){
