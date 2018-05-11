@@ -7,7 +7,7 @@ class Welcome extends React.Component {
         this.state = {
             name: 'a'
         };
-        ['click'].forEach(fn => this[fn] = this[fn].bind(this));
+        //['click'].forEach(fn => this[fn] = this[fn].bind(this));
     }
     render() {
         return <div>
@@ -15,35 +15,41 @@ class Welcome extends React.Component {
             <h1 onClick={this.click}>Hello, {this.state.name}</h1>
         </div>;
     }
-    click(){
-        this.setState({name: "shirly"}); 
-    }
+    // click(){
+    //     this.setState({name: "shirly"}); 
+    // }
     componentDidMount(){
-        console.log('Welcome did mount');
+        //console.log('Welcome did mount');
     }
     componentWillMount(){
-        console.log('componentWillMount')
+        //console.log('componentWillMount')
     }
     componentWillReceiveProps(){
-        console.log('componentWillReceiveProps')
+        //console.log('componentWillReceiveProps')
     }
     componentWillUpdate(){
-        console.log('componentWillUpdate')
+        //console.log('componentWillUpdate')
     }
     componentDidUpdate(){
-        console.log('componentDidUpdate')
+        //console.log('componentDidUpdate')
     }
 }
 class Hi extends React.Component {
     constructor(props){
         super(props);
+        this.state = {name: 'sarah'};
+        ['click'].forEach(fn => this[fn] = this[fn].bind(this));
+    }
+    click(){
+        this.setState({name: "shirly"}); 
     }
     componentDidMount(){
-        console.log('Hi did mount');
+        //console.log('Hi did mount');
     }
+
     render() {
-        return <div>
-             <Welcome name="sarah"/>
+        return <div onClick={this.click}>
+             <Welcome name={this.state.name}/>
         </div>;
     }
     
